@@ -58,10 +58,29 @@ function nombre($nombre, $apellidos){
     $texto = getNombre($nombre)
         ."<br/>".
         getApellidos($apellidos)
+        ."<br/>"
     ;
     return $texto;
 }
 
 echo nombre("Diego", "Collazo");
+
+// Funciones variables
+
+function funcionDia(){
+    return "Buenos dias";
+}
+function funcionTarde(){
+    return "Buenas tardes";
+}
+function funcionNoche(){
+    return "Buenas noches";
+}
+
+$horario = $_GET['horario'];
+$horario = "Noche";
+
+$saludo = "funcion".$horario;
+echo "<h2>".$saludo()."</h2>";
 
 ?>
