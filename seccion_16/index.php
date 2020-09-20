@@ -41,3 +41,4 @@ $contactos = array(
 foreach($contactos as $key => $contacto){
     echo $contacto['nombre'].'<br>';
 }
+
