@@ -17,8 +17,10 @@ echo '<hr>';
 $peliculas[] = "The mommie";
 array_push($peliculas, 'The Matrix');
 
-// Eliminar elementos
+/* Eliminar elementos */
+// Elimina el ultimo
 array_pop($peliculas);
+// Borra por indice
 unset($peliculas[2]);
 
 // Aleatorio
@@ -30,12 +32,12 @@ echo '<hr>';
 var_dump(array_reverse($numeros));
 echo '<hr>';
 
-// Buscar
+// Buscar elementos
 $resultado = array_search('Batman',$peliculas);
 echo $resultado;
 echo '<hr>';
 
-// Contar elemntos
+// Contar elementos
 echo count($numeros);
 echo '<br>';
 echo sizeof($numeros);
