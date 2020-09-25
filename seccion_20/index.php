@@ -90,15 +90,14 @@
                 <input type="url" name="web" />
             </p>
             <!-- Text Area -->
-            <label for="area">Texto:</label><br>
-            <textarea name="area" id="" cols="50" rows="5"></textarea><br>
+            <label for="area">Texto:</label><br />
+            <textarea name="area" id="" cols="50" rows="5"></textarea><br />
             <!-- Select -->
             <select name="peliculas" id="">
                 <option value="spiderman">Spider-Man</option>
                 <option value="batman">Batman</option>
                 <option value="grantorino">Gran Torino</option>
             </select>
-
             <!-- 
                 Atributos para INPUT
                 autofocus="autofocus"
