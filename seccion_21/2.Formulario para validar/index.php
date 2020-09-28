@@ -8,6 +8,52 @@
     <body>
         <h1>Validar de formularios en PHP</h1>
         <form action="procesar.php" method="POST">
+            <?php
+                if(isset($_GET['error'])){
+                    $error = $_GET['error'];
+                    switch ($error) {
+                        case 1:
+                            echo 
+                            '<strong style="color: red">
+                                No se enviaron los datos requeridos correctamente.
+                            </strong>';
+                            break;
+                        case 'nombre':
+                            echo
+                            '<strong style="color: red">
+                                Ingrese su(s) nombre(s) correctamente.
+                            </strong>';
+                            break;
+                        case 'apellido':
+                            echo
+                            '<strong style="color: red">
+                                Ingrese su(s) apellido(s) correctamente.
+                            </strong>';
+                            break;
+                        case 'edad':
+                            echo
+                            '<strong style="color: red">
+                                Ingrese su edad (entre 1 y 120).
+                            </strong>';
+                            break;
+                        case 'email':
+                            echo
+                            '<strong style="color: red">
+                                Ingrese un correo eléctronico válido.
+                            </strong>';
+                            break;
+                        case 'pass':
+                            echo
+                            '<strong style="color: red">
+                                Ingrese una contraseña válida (5 caracteres mínimo).
+                            </strong>';
+                            break;
+                        default:
+                            break;
+                    }
+                    echo '<br><br>';
+                }
+            ?>
             <!-- Nombre -->
             <label for="nombre">Nombre(s)</label><br />
             <input
@@ -38,8 +84,8 @@
             <input type="email" name="email" required="required" /><br />
             <!-- Contraseña -->
             <label for="pass">Contraseña</label><br />
-            <input type="password" name="pass" required="required" /><br />
-
+            <input type="password" name="pass" required="required" minlength="5"/><br />
+            <!-- Enviar formulario -->
             <input type="submit" value="Enviar" />
         </form>
     </body>
