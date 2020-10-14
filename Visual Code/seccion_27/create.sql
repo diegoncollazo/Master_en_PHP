@@ -22,9 +22,9 @@ CREATE TABLE blog.usuarios
 );
 
 INSERT INTO usuarios(
-id, name, lastname, email, password) 
+id, name, lastname, email, password, website) 
 VALUES
-(1,"Diego","Collazo","asd@asd.net","myPASS");
+(3,"Nicolas","Collazo","asd@asd.net","myPASS", "github.com");
 
 -- Borrar tablas
 DROP TABLE usuarios;
@@ -32,6 +32,18 @@ DROP TABLE usuarios;
 -- Modificar tablas
 -- Renombar tabla
 ALTER TABLE usuarios RENAME TO renombrados;
+
 -- Renombrar columnas
 ALTER TABLE renombrados CHANGE lastname apellidos VARCHAR(100) NULL;
 
+-- Modificar el tipo en la columna
+ALTER TABLE renombrados MODIFY lastname CHAR(50) NOT NULL;
+
+-- Agregar columna
+ALTER TABLE renombrados ADD website VARCHAR(100) NULL;
+
+-- Agregar restriccion a columna
+ALTER TABLE renombrados ADD CONSTRAINT uq_email UNIQUE(email);
+
+-- Borrar una columna
+ALTER TABLE renombrados DROP website;
