@@ -32,3 +32,10 @@ SELECT email, HOUR(fecha) AS 'Día del año' FROM usuarios
 SELECT email, CURTIME() AS 'Hora actual' FROM usuarios
 SELECT email, SYSDATE() AS 'Hora del sistema' FROM usuarios
 SELECT email, DATE_FORMAT(fecha, '%d/%m/%Y') AS 'Fecha formateada' FROM usuarios
+
+-- Funciones generales
+SELECT email, ISNULL(apellido) FROM usuarios
+SELECT email, STRCMP('Hola', 'Hola') FROM usuarios
+SELECT VERSION() FROM usuarios
+SELECT DISTINCT DATABASE() FROM usuarios
+SELECT IFNULL(apellido, 'Zaraza') FROM usuarios
