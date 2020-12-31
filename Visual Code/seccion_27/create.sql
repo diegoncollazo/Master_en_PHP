@@ -11,6 +11,9 @@ text
 mediumtext
 longtext
 */
+mysql -u root -p
+-- zaq1XSW"
+
 CREATE TABLE blog.usuarios
 (
     id INT(11) NOT NULL AUTO_INCREMENT,
