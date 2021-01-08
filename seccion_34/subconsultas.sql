@@ -61,6 +61,7 @@ WHERE
 
 -- Todas las entradas de la categoria accion utilizando su nombre
 SELECT
+    categoria_id,
     titulo
 FROM
     entradas
@@ -75,6 +76,74 @@ WHERE
     );
 
 -- Mostrar categorias con mas de 3 entradas
--- Mostrar los usuarios que crearon una entrada un martes
+SELECT
+    id,
+    nombre
+FROM
+    categorias
+WHERE
+    id IN (
+        SELECT
+            categoria_id
+        FROM
+            entradas
+        GROUP BY
+            categoria_id
+        HAVING
+            COUNT(categoria_id) >= 3
+    );
+
+-- Mostrar los usuarios que crearon una entrada un martes 
+SELECT
+    *
+FROM
+    usuarios
+WHERE
+    id IN (
+        SELECT
+            usuario_id
+        FROM
+            entradas
+        WHERE
+            DAYOFWEEK(fecha) = 2
+    );
+
 -- Mostrar nombre del usuario que tenga mas entradas
+SELECT
+    CONCAT(nombre, ' ', apellido) AS 'Mas entradas'
+FROM
+    usuarios
+WHERE
+    id =(
+        SELECT
+            usuario_id
+        FROM
+            entradas
+        GROUP BY
+            usuario_id
+        ORDER BY
+            COUNT(id) DESC
+        LIMIT
+            1
+    );
+
+SELECT
+    COUNT(id),
+    usuario_id
+FROM
+    entradas
+GROUP BY
+    usuario_id;
+
 -- Mostras las categorias sin entradas
+SELECT
+    *
+FROM
+    categorias
+WHERE
+    id NOT IN (
+        SELECT
+            categoria_id
+        FROM
+            entradas
+    );
